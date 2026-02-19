@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?><?import javafx.scene.layout.GridPane?><?import javafx.scene.layout.HBox?><?import javafx.scene.layout.VBox?><?import javafx.scene.layout.ColumnConstraints?><?import javafx.scene.layout.Pane?><?import javafx.scene.control.Slider?><?import javafx.geometry.Insets?><?import javafx.scene.control.Button?><?import javafx.scene.image.ImageView?><?import javafx.scene.image.Image?><?import javafx.scene.layout.StackPane?>
+<VBox
+    spacing="20.0"
+    maxWidth="Infinity"
+    alignment="TOP_CENTER"
+    style="-fx-background-color: black;"
+    fx:controller="me.bramar.maze.MazeController"
+    xmlns:fx="http://javafx.com/fxml"
+    onMouseDragged="#onMouseDragged"
+    onMouseMoved="#onMouseMoved">
+
+    <HBox
+        VBox.vgrow="ALWAYS"
+        minHeight="40"
+        maxHeight="40"
+        maxWidth="Infinity"
+        alignment="CENTER"
+        style="-fx-background-color: #3c3f41AA"
+        onMouseClicked="#onTitleBarClick"
+        onMouseDragged="#onTitleBarDrag">
+        <padding>
+            <Insets left="8"/>
+        </padding>
+        <ImageView>
+            <fitWidth>20</fitWidth>
+            <preserveRatio>true</preserveRatio>
+            <Image url="@../img/icon.png" />
+        </ImageView>
+        <Label HBox.hgrow="ALWAYS" maxWidth="10" />
+        <Label
+            textFill="#FFFFFFAA"
+            alignment="CENTER"
+            style="-fx-font-size: 14px;">Maze Simulation</Label>
+        <Label HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+        <StackPane
+            fx:id="controlMinimize"
+            minHeight="40" maxHeight="40"
+            minWidth="40" maxWidth="40"
+            onMouseEntered="#hoverMinimize"
+            onMouseExited="#unhoverMinimize"
+            onMouseClicked="#minimize">
+            <ImageView>
+                <fitHeight>18</fitHeight>
+                <preserveRatio>true</preserveRatio>
+                <Image url="@../img/minimize.png" />
+            </ImageView>
+        </StackPane>
+        <StackPane
+            fx:id="controlMaximize"
+            minHeight="40" maxHeight="40"
+            minWidth="40" maxWidth="40"
+            onMouseEntered="#hoverMaximize"
+            onMouseExited="#unhoverMaximize"
+            onMouseClicked="#maximize">
+            <ImageView fx:id="iconMaximize">
+                <fitHeight>18</fitHeight>
+                <preserveRatio>true</preserveRatio>
+                <Image url="@../img/maximize.png" />
+            </ImageView>
+            <ImageView fx:id="iconRestore" visible="false">
+                <fitHeight>18</fitHeight>
+                <preserveRatio>true</preserveRatio>
+                <Image url="@../img/restore.png" />
+            </ImageView>
+        </StackPane>
+        <StackPane
+            fx:id="controlClose"
+            minHeight="40" maxHeight="40"
+            minWidth="40" maxWidth="40"
+            onMouseEntered="#hoverClose"
+            onMouseExited="#unhoverClose"
+            onMouseClicked="#close">
+            <ImageView>
+                <fitHeight>18</fitHeight>
+                <preserveRatio>true</preserveRatio>
+                <Image url="@../img/close.png" />
+            </ImageView>
+        </StackPane>
+    </HBox>
+    <Label
+        textFill="white"
+        maxWidth="Infinity"
+        textAlignment="CENTER"
+        alignment="CENTER"
+        style="-fx-font-size: 24px; -fx-underline: true;">Maze Simulation: visualization of BFS</Label>
+    <GridPane
+        VBox.vgrow="ALWAYS"
+        maxHeight="Infinity">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="60"/>
+            <ColumnConstraints percentWidth="40"/>
+        </columnConstraints>
+
+        <GridPane
+            fx:id="mazeGridPane"
+            GridPane.columnIndex="0"
+            GridPane.vgrow="ALWAYS"
+            GridPane.fillHeight="true"
+            maxHeight="Infinity"
+            style="-fx-border-width: 2px; -fx-border-color: #000000;">
+        </GridPane>
+
+        <VBox GridPane.columnIndex="1" spacing="20">
+            <padding>
+                <Insets left="15" right="15" />
+            </padding>
+            <Label
+                textFill="white"
+                maxWidth="Infinity"
+                textAlignment="CENTER"
+                alignment="CENTER"
+                style="-fx-font-size: 16px">Control</Label>
+            <HBox
+                maxHeight="Infinity"
+                alignment="CENTER_LEFT" spacing="10">
+                <Label
+                    textFill="white"
+                    alignment="CENTER">Rows</Label>
+                <Label HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                <Label fx:id="rowSliderLabel" textFill="gray" alignment="CENTER" />
+                <Slider fx:id="rowSlider" value="10" min="2" max="50" blockIncrement="1" showTickLabels="true" majorTickUnit="Infinity"/>
+            </HBox>
+
+            <HBox
+                maxHeight="Infinity"
+                alignment="CENTER_LEFT" spacing="10">
+                <Label
+                    textFill="white"
+                    alignment="CENTER">Columns</Label>
+                <Label HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                <Label fx:id="colSliderLabel" textFill="gray" alignment="CENTER" />
+                <Slider fx:id="colSlider" value="10" min="2" max="50" blockIncrement="1" showTickLabels="true" majorTickUnit="Infinity"/>
+            </HBox>
+            <HBox
+                maxHeight="Infinity"
+                alignment="CENTER_LEFT" spacing="10">
+                <Label
+                    textFill="white"
+                    alignment="CENTER">Speed</Label>
+                <Label HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                <Slider fx:id="speedSlider" value="0.8" max="1"/>
+            </HBox>
+            <Button textFill="white" style="-fx-background-color: rgb(100, 0, 0);" onAction="#generateRandomGrid">Generate Random</Button>
+            <Button fx:id="toggleBfsBtn" textFill="white" style="-fx-background-color: rgb(100, 0, 0);" onAction="#toggleBfs">Start</Button>
+            <Button textFill="white" style="-fx-background-color: rgb(100, 0, 0);" onAction="#stepBfs">Step</Button>
+        </VBox>
+    </GridPane>
+</VBox>
