@@ -10,4 +10,5 @@ The website will download a ZIP. Unzip it, you should see a folder named "javafx
 `java --module-path path/to/javafx-sdk-21.0.10/lib --add-modules=javafx.controls,javafx.fxml,javafx.media -jar MazeSimulation-1.0-SNAPSHOT.jar`
 
 ## Preview
-TODO
+https://github.com/user-attachments/assets/1c686a60-c2c5-4619-acb8-fb0941448fc4
+
