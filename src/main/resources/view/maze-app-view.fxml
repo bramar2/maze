@@ -142,6 +142,15 @@
                 <Label HBox.hgrow="ALWAYS" maxWidth="Infinity" />
                 <Slider fx:id="speedSlider" value="0.8" max="1"/>
             </HBox>
+            <HBox
+                maxHeight="Infinity"
+                alignment="CENTER_LEFT" spacing="10">
+                <Label
+                    textFill="white"
+                    alignment="CENTER">SFX</Label>
+                <Label HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                <Slider fx:id="sfxVolumeSlider" value="1" max="1"/>
+            </HBox>
             <Button textFill="white" style="-fx-background-color: rgb(100, 0, 0);" onAction="#generateRandomGrid">Generate Random</Button>
             <Button fx:id="toggleBfsBtn" textFill="white" style="-fx-background-color: rgb(100, 0, 0);" onAction="#toggleBfs">Start</Button>
             <Button textFill="white" style="-fx-background-color: rgb(100, 0, 0);" onAction="#stepBfs">Step</Button>

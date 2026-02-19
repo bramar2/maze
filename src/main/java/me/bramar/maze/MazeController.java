@@ -29,7 +29,7 @@ public class MazeController {
     @FXML
     private Label rowSliderLabel, colSliderLabel;
     @FXML
-    private Slider rowSlider, colSlider, speedSlider;
+    private Slider rowSlider, colSlider, speedSlider, sfxVolumeSlider;
     @FXML
     private StackPane controlClose, controlMinimize, controlMaximize;
     @FXML
@@ -193,7 +193,7 @@ public class MazeController {
             bfsQueue.clear();
             bfsLoop.stop();
         }
-        beep.play(1, 0, 1.0f + 5.0f * (double) bfsQueue.size() / rows, 0, 0);
+        beep.play(sfxVolumeSlider.getValue(), 0, 1.0f + 5.0f * (double) bfsQueue.size() / rows, 0, 0);
     }
 
     public void startVisualizePath() {
@@ -223,7 +223,7 @@ public class MazeController {
 
             gridCells[row][col].setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
 
-            beep.play(1, 0, 1.0f + 3.0f * (double) (pathSize - path.size()) / pathSize, 0, 0);
+            beep.play(sfxVolumeSlider.getValue(), 0, 1.0f + 3.0f * (double) (pathSize - path.size()) / pathSize, 0, 0);
         }
     }
 
