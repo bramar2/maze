@@ -1,4 +1,7 @@
 # maze: Maze solver simulation using BFS in JavaFX
+
+Maze simulation application with a BFS solver accompanied with (interesting?) beeping sounds. Features include, a random perfect maze generator using Origin Shift, customizable maze dimensions, and customizable solver speed. Made in Java 21 using JavaFX.
+
 ## Dependencies
 - JavaFX (javafx-controls, javafx-fxml, javafx-media)
 
